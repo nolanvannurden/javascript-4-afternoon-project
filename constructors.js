@@ -118,18 +118,23 @@ User.prototype.addSavedPost = function (id, title, rating) {
 // Write a prototype method for the User constructor function named removeSavedPost that will take in one number parameter representing the post id. Use this id to find and remove the matching object in the savedPosts array.
 
 // Code here
-User.prototype.removeSavedPost = function (id) {
-  this.savedPosts.pop({id})
-};
+User.prototype.removeSavedPost = function(id){
+  for(let i =0; i < this.savedPosts.length; i++){
+    if(this.savedPosts[i].id === id){
+      this.savedPosts.splice(i,1)
+    }
+  }
+}
 ////////// PROBLEM 7 //////////
 
 // You will continue to use the constructor function you created in problem 5.
 // Write a prototype method for the User constructor function named changePostRating that will take in two number parameters. The first will be an id (a number) and the second will be the new rating (a number). Use the id to find the matching object in the savedPosts array. Once you find the matching object, update it's rating score with the new rating parameter.
 
 // Code here
-User.prototype.changePostRating = function (id, rating) {
-  // this.savedPosts.find(savedPosts{id, rating})
-const id2 = this.savedPosts.find (e => e.id === id)
-console.log(id2, id);
-id2.rating = rating;
-};
+User.prototype.changePostRating = function(num1, num2){
+  for(i = 0; i < this.savedPosts.length; i++){
+    if(this.savedPosts[i].id === num1){
+      this.savedPosts[i].rating = num2
+    }
+  }
+}
